@@ -1,18 +1,14 @@
-import { useSectionAnimation } from '../hooks/useSectionAnimation'
-
 const Hero = () => {
-  const sectionRef = useSectionAnimation()
-
   return (
-    <section ref={sectionRef} className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden">
       {/* 메인 타이틀 */}
       <div className="relative z-20 flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <div className="mb-8 animate-glow">
+          <div className="mb-8">
             <img
               src="/logo.svg"
-              alt="SABONG Logo"
-              className="mx-auto w-96 h-48 md:w-[32rem] md:h-64 transform hover:scale-110 transition-all duration-700 animate-fade-in-up"
+              alt="SABON Logo"
+              className="mx-auto w-[28rem] h-56 md:w-[36rem] md:h-72 transform hover:scale-105 transition-all duration-700 filter brightness-110 contrast-110"
             />
           </div>
         </div>

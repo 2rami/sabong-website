@@ -97,7 +97,7 @@ const Products = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white relative overflow-hidden" id="collection-bg">
+    <section ref={sectionRef} className="pt-32 pb-20 bg-white relative overflow-hidden" id="collection-bg">
       {/* 배경 패턴 */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-20 h-20 border border-gray-300 rounded-full"></div>
@@ -108,12 +108,12 @@ const Products = () => {
         <div className="absolute top-20 left-1/2 w-6 h-6 bg-gray-200 rotate-45"></div>
       </div>
 
-      <div className="container mx-auto px-8 relative z-10">
+      <div className="container mx-auto px-8 relative z-10 mt-16">
 
         {/* 제목 */}
         <div
           ref={titleRef}
-          className={`text-center mb-16 transition-all duration-1000 ${
+          className={`text-center mb-24 transition-all duration-1000 ${
             titleVisible
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-10'
@@ -128,7 +128,7 @@ const Products = () => {
         </div>
 
         {/* 제품 그리드 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-3 gap-4 max-w-5xl mx-auto">
 
           {products.map((product, index) => (
             <div

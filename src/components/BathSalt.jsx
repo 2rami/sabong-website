@@ -75,7 +75,7 @@ const BathSalt = () => {
         {/* 이미지 그리드 */}
         <div
           ref={gridRef}
-          className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16 transition-all duration-1000 delay-200 ${
+          className={`grid grid-cols-4 gap-8 max-w-6xl mx-auto mb-16 transition-all duration-1000 delay-200 ${
             gridVisible
               ? 'opacity-100 rotate-x-0'
               : 'opacity-0 rotate-x-[90deg]'
@@ -119,10 +119,10 @@ const BathSalt = () => {
           }`}
         >
           <p className="font-pretendard text-xl text-stone-200 leading-relaxed mb-4">
-            <span className="staggered-text">천연 식물성 오일과 에센셜 오일의 완벽한 조화</span>
+            <span className="staggered-text"><span className="font-bold">천연 식물성 오일</span>과 <span className="font-bold">에센셜 오일</span>의 완벽한 조화</span>
           </p>
           <p className="font-pretendard text-lg text-stone-300 leading-relaxed">
-            <span className="staggered-text">따뜻한 목욕물에 녹여 사용하면 피부에 영양을 공급하며 몸과 마음의 긴장을 풀어줍니다</span>
+            <span className="staggered-text">따뜻한 목욕물에 녹여 사용하면 <span className="font-bold">피부에 영양을 공급</span>하며 <span className="font-bold">몸과 마음의 긴장을 풀어줍니다</span></span>
           </p>
         </div>
 

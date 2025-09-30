@@ -52,7 +52,7 @@ const BodyWash = () => {
           <div className="w-20 h-px bg-stone-400 staggered-text"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
 
           {/* 이미지 */}
           <div
@@ -109,32 +109,32 @@ const BodyWash = () => {
               <div className="bg-white/80 backdrop-blur-sm px-8 py-12 shadow-lg border border-stone-200">
                 <div className="text-center mb-8">
                   <div className="staggered-line">
-                    <p className="font-pretendard text-lg text-stone-700 leading-relaxed staggered-text">사봉 바디 워시는</p>
+                    <p className="font-pretendard text-lg text-stone-700 leading-relaxed staggered-text"><span className="font-bold">사봉 바디 워시</span>는</p>
                   </div>
                   <div className="staggered-line">
-                    <p className="font-pretendard text-lg text-stone-700 leading-relaxed staggered-text">피부에 부드럽게 작용하는</p>
+                    <p className="font-pretendard text-lg text-stone-700 leading-relaxed staggered-text">피부에 <span className="font-bold">부드럽게</span> 작용하는</p>
                   </div>
                   <div className="staggered-line">
-                    <p className="font-pretendard text-lg text-stone-700 leading-relaxed staggered-text">천연 성분으로 만들어졌습니다</p>
+                    <p className="font-pretendard text-lg text-stone-700 leading-relaxed staggered-text"><span className="font-bold">천연 성분</span>으로 만들어졌습니다</p>
                   </div>
                 </div>
                 <div className="w-12 h-px bg-stone-400 mx-auto mb-8 staggered-text"></div>
                 <div className="text-center">
                   <div className="staggered-line">
-                    <p className="font-pretendard text-base text-stone-600 leading-relaxed staggered-text">풍성한 거품과 함께 은은한 향기가</p>
+                    <p className="font-pretendard text-base text-stone-600 leading-relaxed staggered-text"><span className="font-bold">풍성한 거품</span>과 함께 <span className="font-bold">은은한 향기</span>가</p>
                   </div>
                   <div className="staggered-line">
-                    <p className="font-pretendard text-base text-stone-600 leading-relaxed staggered-text">하루의 피로를 씻어냅니다</p>
+                    <p className="font-pretendard text-base text-stone-600 leading-relaxed staggered-text">하루의 <span className="font-bold">피로를 씻어냅니다</span></p>
                   </div>
                   <div className="mt-4">
                     <div className="staggered-line">
-                      <p className="font-pretendard text-base text-stone-600 leading-relaxed staggered-text">천연 유래 성분 98%와</p>
+                      <p className="font-pretendard text-base text-stone-600 leading-relaxed staggered-text"><span className="font-bold">천연 유래 성분 98%</span>와</p>
                     </div>
                     <div className="staggered-line">
-                      <p className="font-pretendard text-base text-stone-600 leading-relaxed staggered-text">pH 밸런스 포뮬러로</p>
+                      <p className="font-pretendard text-base text-stone-600 leading-relaxed staggered-text"><span className="font-bold">pH 밸런스 포뮬러</span>로</p>
                     </div>
                     <div className="staggered-line">
-                      <p className="font-pretendard text-base text-stone-600 leading-relaxed staggered-text">민감한 피부까지 부드럽게 케어합니다</p>
+                      <p className="font-pretendard text-base text-stone-600 leading-relaxed staggered-text"><span className="font-bold">민감한 피부</span>까지 부드럽게 케어합니다</p>
                     </div>
                   </div>
                 </div>

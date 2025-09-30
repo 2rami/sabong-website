@@ -64,7 +64,7 @@ const Perfume = () => {
         </div>
 
         {/* 퍼퓸 그리드 */}
-        <div className="grid lg:grid-cols-2 gap-16 max-w-5xl mx-auto mb-20">
+        <div className="grid grid-cols-2 gap-16 max-w-5xl mx-auto mb-20">
 
           {/* 첫 번째 퍼퓸 */}
           <div
