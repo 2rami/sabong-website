@@ -31,7 +31,7 @@ const BathSalt = () => {
   ]
 
   return (
-    <section ref={sectionRef} className="py-32 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-600 relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-transparent relative overflow-hidden">
       {/* 도트 패턴 */}
       <div className="absolute inset-0 opacity-5">
         {Array.from({length: 50}).map((_, i) => (

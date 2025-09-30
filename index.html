@@ -252,6 +252,79 @@
       .image-float {
         animation: imageFloat 8s ease-in-out infinite;
       }
+
+      /* 콜렉션 카드 부유 애니메이션 */
+      @keyframes float1 {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-8px) rotate(0.5deg);
+        }
+        66% {
+          transform: translateY(-4px) rotate(-0.3deg);
+        }
+      }
+
+      @keyframes float2 {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-6px) rotate(-0.4deg);
+        }
+        75% {
+          transform: translateY(-10px) rotate(0.2deg);
+        }
+      }
+
+      @keyframes float3 {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        40% {
+          transform: translateY(-7px) rotate(0.3deg);
+        }
+        80% {
+          transform: translateY(-3px) rotate(-0.5deg);
+        }
+      }
+
+      .animate-float-1 {
+        animation: float1 6s ease-in-out infinite;
+      }
+
+      .animate-float-2 {
+        animation: float2 7s ease-in-out infinite;
+      }
+
+      .animate-float-3 {
+        animation: float3 8s ease-in-out infinite;
+      }
+
+      /* 호버 확대 효과 - 별도 레이어로 처리 */
+      .card-hover {
+        position: relative;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* floating 컨테이너도 함께 z-index 올리기 */
+      .animate-float-1:has(.card-hover:hover),
+      .animate-float-2:has(.card-hover:hover),
+      .animate-float-3:has(.card-hover:hover) {
+        z-index: 999998 !important;
+        position: relative !important;
+      }
+
+      .card-hover:hover {
+        transform: scale(1.25) !important;
+        z-index: 999999 !important;
+        position: relative !important;
+      }
+
+      .card-hover:hover .aspect-\[3\/4\] {
+        box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.5), 0 25px 25px -5px rgba(0, 0, 0, 0.2) !important;
+      }
     </style>
   </head>
   <body>

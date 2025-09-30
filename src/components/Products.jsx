@@ -58,57 +58,38 @@ const Products = () => {
     }
   ]
 
-  const handleMouseEnter = (e, product) => {
-    // 카드 확대
-    e.currentTarget.style.transform = 'scale(1.25)';
-    e.currentTarget.style.zIndex = '10';
-
-    // 색상 전환
-    const bg = document.getElementById('collection-bg');
-    const title = document.getElementById('collection-title');
-    const line = document.getElementById('collection-line');
-    const titles = document.querySelectorAll('.product-title');
-    const descs = document.querySelectorAll('.product-desc');
-
-    if (bg) bg.style.backgroundColor = product.bgColor;
-    if (title) title.style.color = product.textColor;
-    if (line) line.style.backgroundColor = product.textColor;
-    titles.forEach(el => el.style.color = product.textColor);
-    descs.forEach(el => el.style.color = product.textColor);
-  };
-
-  const handleMouseLeave = (e) => {
-    // 카드 원래 크기로
-    e.currentTarget.style.transform = 'scale(1)';
-    e.currentTarget.style.zIndex = '1';
-
-    // 색상 원래대로
-    const bg = document.getElementById('collection-bg');
-    const title = document.getElementById('collection-title');
-    const line = document.getElementById('collection-line');
-    const titles = document.querySelectorAll('.product-title');
-    const descs = document.querySelectorAll('.product-desc');
-
-    if (bg) bg.style.backgroundColor = '#ffffff';
-    if (title) title.style.color = '#111827';
-    if (line) line.style.backgroundColor = '#d1d5db';
-    titles.forEach(el => el.style.color = '#111827');
-    descs.forEach(el => el.style.color = '#6b7280');
-  };
 
   return (
-    <section ref={sectionRef} className="pt-32 pb-20 bg-white relative overflow-hidden" id="collection-bg">
+    <section ref={sectionRef} className="pt-32 pb-20 bg-transparent relative" style={{ overflow: 'visible' }} id="collection-bg">
       {/* 배경 패턴 */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-20 h-20 border border-gray-300 rounded-full"></div>
-        <div className="absolute top-32 right-20 w-16 h-16 border border-gray-300 rotate-45"></div>
-        <div className="absolute bottom-20 left-1/4 w-24 h-24 border border-gray-300 rounded-full"></div>
-        <div className="absolute bottom-32 right-10 w-12 h-12 border border-gray-300 rotate-45"></div>
-        <div className="absolute top-1/2 left-10 w-8 h-8 bg-gray-200 rounded-full"></div>
-        <div className="absolute top-20 left-1/2 w-6 h-6 bg-gray-200 rotate-45"></div>
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-10 left-10 w-20 h-20 border-2 border-gray-400 rounded-full animate-pulse"></div>
+        <div className="absolute top-32 right-20 w-16 h-16 border-2 border-gray-400 rotate-45" style={{
+          animation: 'float1 8s ease-in-out infinite'
+        }}></div>
+        <div className="absolute bottom-20 left-1/4 w-24 h-24 border border-gray-400 rounded-full" style={{
+          background: 'radial-gradient(circle, rgba(156,163,175,0.3) 0%, transparent 70%)'
+        }}></div>
+        <div className="absolute bottom-32 right-10 w-12 h-12 border-2 border-gray-400 rotate-45" style={{
+          animation: 'float2 6s ease-in-out infinite reverse'
+        }}></div>
+        <div className="absolute top-1/2 left-10 w-8 h-8 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full shadow-sm" style={{
+          animation: 'float3 10s ease-in-out infinite'
+        }}></div>
+        <div className="absolute top-20 left-1/2 w-6 h-6 bg-gradient-to-br from-gray-400 to-gray-500 rotate-45" style={{
+          animation: 'float1 7s ease-in-out infinite'
+        }}></div>
+        <div className="absolute top-1/3 right-1/3 w-10 h-10 border border-gray-400 rounded-full" style={{
+          background: 'conic-gradient(from 0deg, transparent, rgba(156,163,175,0.2), transparent)',
+          animation: 'float2 9s ease-in-out infinite'
+        }}></div>
+        <div className="absolute bottom-1/3 left-1/2 w-14 h-14 border border-gray-400" style={{
+          clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+          animation: 'float3 11s ease-in-out infinite reverse'
+        }}></div>
       </div>
 
-      <div className="container mx-auto px-8 relative z-10 mt-16">
+      <div className="container mx-auto px-8 relative z-10 mt-16" style={{ overflow: 'visible' }}>
 
         {/* 제목 */}
         <div
@@ -128,32 +109,73 @@ const Products = () => {
         </div>
 
         {/* 제품 그리드 */}
-        <div className="grid grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-3 gap-4 max-w-5xl mx-auto" style={{ overflow: 'visible' }}>
 
-          {products.map((product, index) => (
+          {products.map((product, index) => {
+            const floatAnimations = [
+              'animate-float-1',
+              'animate-float-2',
+              'animate-float-3'
+            ];
+
+            return (
             <div
               key={index}
-              className="group cursor-pointer relative"
+              className={`${floatAnimations[index]}`}
               style={{
-                transition: 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), z-index 0s',
-                zIndex: 1,
+                animationDelay: `${index * 0.5}s`
               }}
-              onMouseEnter={(e) => handleMouseEnter(e, product)}
-              onMouseLeave={handleMouseLeave}
             >
-              <div className="aspect-[3/4] overflow-hidden bg-gray-100 mb-6 relative shadow-md">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="text-center px-4 pb-4">
-                <h3 className="font-omni text-lg font-medium text-gray-900 mb-1 product-title">{product.name}</h3>
-                <p className="font-pretendard text-xs text-gray-500 product-desc tracking-wide">{product.description}</p>
+              <div
+                className="group cursor-pointer relative card-hover"
+                style={{ zIndex: 1 }}
+                onMouseEnter={() => {
+                  // 배경색 변경
+                  const bg = document.getElementById('collection-bg');
+                  const title = document.getElementById('collection-title');
+                  const line = document.getElementById('collection-line');
+                  const titles = document.querySelectorAll('.product-title');
+                  const descs = document.querySelectorAll('.product-desc');
+
+                  if (bg) bg.style.backgroundColor = product.bgColor;
+                  if (title) title.style.color = product.textColor;
+                  if (line) line.style.backgroundColor = product.textColor;
+                  titles.forEach(el => el.style.color = product.textColor);
+                  descs.forEach(el => el.style.color = product.textColor);
+                }}
+                onMouseLeave={() => {
+                  // 색상 원래대로
+                  const bg = document.getElementById('collection-bg');
+                  const title = document.getElementById('collection-title');
+                  const line = document.getElementById('collection-line');
+                  const titles = document.querySelectorAll('.product-title');
+                  const descs = document.querySelectorAll('.product-desc');
+
+                  if (bg) bg.style.backgroundColor = 'transparent';
+                  if (title) title.style.color = '#111827';
+                  if (line) line.style.backgroundColor = '#d1d5db';
+                  titles.forEach(el => el.style.color = '#111827');
+                  descs.forEach(el => el.style.color = '#6b7280');
+                }}
+              >
+                <div className="aspect-[3/4] overflow-hidden bg-gray-100 mb-6 relative" style={{
+                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1)',
+                  transition: 'box-shadow 0.5s ease'
+                }}>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-center px-4 pb-4">
+                  <h3 className="font-omni text-lg font-medium text-gray-900 mb-1 product-title">{product.name}</h3>
+                  <p className="font-pretendard text-xs text-gray-500 product-desc tracking-wide">{product.description}</p>
+                </div>
               </div>
             </div>
-          ))}
+            );
+          })}
 
         </div>
       </div>

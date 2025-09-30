@@ -4,7 +4,7 @@ const Footer = () => {
   const sectionRef = useSectionAnimation()
 
   return (
-    <footer ref={sectionRef} className="bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900 text-white py-20 min-h-screen flex items-center relative overflow-hidden">
+    <footer ref={sectionRef} className="bg-transparent text-white py-20 min-h-screen flex items-center relative overflow-hidden">
       {/* 어두운 패턴 */}
       <div className="absolute inset-0 opacity-5">
         {Array.from({length: 30}).map((_, i) => (
