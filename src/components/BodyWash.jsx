@@ -52,7 +52,7 @@ const BodyWash = () => {
           <div className="w-20 h-px bg-stone-400 staggered-text"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
 
           {/* 이미지 */}
           <div
