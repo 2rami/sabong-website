@@ -9,29 +9,24 @@ const BathSalt = () => {
 
   const images = [
     {
-      src: "/images/bathsalt/Render_Mockup_1600_1200_2025-06-13 (11).jpg",
+      src: "/images/bathsalt/배쓰밤 아로마틱.png",
       name: "라벤더 릴랙싱",
       subtitle: "Lavender Relaxing"
     },
     {
-      src: "/images/bathsalt/Render_Mockup_1600_1200_2025-06-13 (12).jpg",
-      name: "로즈 로맨틱",
-      subtitle: "Rose Romantic"
-    },
-    {
-      src: "/images/bathsalt/Render_Mockup_1600_1200_2025-06-13 (13).jpg",
-      name: "자스민 프레시",
-      subtitle: "Jasmine Fresh"
-    },
-    {
-      src: "/images/bathsalt/Render_Mockup_1600_1200_2025-06-13 (14).jpg",
+      src: "/images/bathsalt/배쓰밤 샌달우드.png",
       name: "샌달우드 캄",
       subtitle: "Sandalwood Calm"
+    },
+    {
+      src: "/images/bathsalt/배쓰밤 자스민.png",
+      name: "자스민 프레시",
+      subtitle: "Jasmine Fresh"
     }
   ]
 
   return (
-    <section ref={sectionRef} className="py-32 bg-transparent relative overflow-hidden">
+    <section ref={sectionRef} className="h-screen flex items-center bg-transparent relative overflow-hidden py-20 mb-[100vh]">
       {/* 도트 패턴 */}
       <div className="absolute inset-0 opacity-5">
         {Array.from({length: 50}).map((_, i) => (
@@ -47,35 +42,34 @@ const BathSalt = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-8 relative z-10">
+      <div className="container mx-auto px-8 py-12 relative z-10 w-full h-full flex flex-col">
 
         {/* 제목 */}
         <div
           ref={titleRef}
-          className={`text-center mb-20 transition-all duration-1000 ${
+          className={`mb-8 transition-all duration-1000 ${
             titleVisible
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="font-display text-6xl font-light text-stone-100 tracking-wide mb-6">
+          <h2 className="font-display text-4xl font-light text-stone-100 tracking-wide mb-3">
             <div className="staggered-line">
               <span className="staggered-text">Bath Balm</span>
             </div>
           </h2>
-          <div className="flex items-center justify-center space-x-4">
+          <div className="flex items-center space-x-4">
             <div className="w-8 h-px bg-stone-400 staggered-text"></div>
-            <p className="text-sm tracking-[0.4em] text-stone-300 uppercase font-light staggered-text">
+            <p className="text-xs tracking-[0.3em] text-stone-300 uppercase font-light staggered-text">
               Natural Bath Balm
             </p>
-            <div className="w-8 h-px bg-stone-400 staggered-text"></div>
           </div>
         </div>
 
         {/* 이미지 그리드 */}
         <div
           ref={gridRef}
-          className={`grid grid-cols-4 gap-8 max-w-6xl mx-auto mb-16 transition-all duration-1000 delay-200 ${
+          className={`grid grid-cols-3 gap-12 max-w-6xl mx-auto flex-1 items-center transition-all duration-1000 delay-200 ${
             gridVisible
               ? 'opacity-100 rotate-x-0'
               : 'opacity-0 rotate-x-[90deg]'
@@ -87,13 +81,12 @@ const BathSalt = () => {
               className="group cursor-pointer"
               style={{ animationDelay: `${index * 200}ms` }}
             >
-              <div className="relative overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500"
-                   style={{ clipPath: 'polygon(5% 0%, 100% 5%, 95% 100%, 0% 95%)' }}>
-                <div className="aspect-[3/4]">
+              <div className="relative overflow-hidden">
+                <div className="aspect-[2/3] max-w-sm mx-auto">
                   <img
                     src={image.src}
                     alt={image.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">

@@ -6,6 +6,8 @@ import Products from './components/Products'
 import BodyWash from './components/BodyWash'
 import BathSalt from './components/BathSalt'
 import Perfume from './components/Perfume'
+import HandWash from './components/HandWash'
+import Lanyard from './components/Lanyard'
 
 function App() {
   useEffect(() => {
@@ -13,6 +15,8 @@ function App() {
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true,
+      smoothTouch: false, // 터치에서는 네이티브 스크롤 사용
+      syncTouch: true,
     })
 
     function raf(time) {
@@ -36,6 +40,12 @@ function App() {
         <BodyWash />
         <BathSalt />
         <Perfume />
+        <HandWash />
+
+        {/* Discord Lanyard */}
+        <div className="container mx-auto px-4 py-20">
+          <Lanyard userId="YOUR_DISCORD_USER_ID" theme="dark" />
+        </div>
       </div>
     </div>
   )

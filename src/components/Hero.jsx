@@ -1,14 +1,14 @@
 const Hero = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative h-screen overflow-hidden mb-[100vh]">
       {/* 메인 타이틀 */}
-      <div className="relative z-20 flex items-center justify-center min-h-screen">
+      <div className="relative z-20 flex items-center justify-center h-screen">
         <div className="text-center">
           <div className="mb-8">
             <img
               src="/logo.svg"
               alt="SABON Logo"
-              className="mx-auto w-[28rem] h-56 md:w-[36rem] md:h-72 transform hover:scale-105 transition-all duration-700 filter brightness-110 contrast-110"
+              className="mx-auto w-[28rem] h-56 md:w-[36rem] md:h-72 transform hover:scale-105 transition-all duration-700 filter brightness-150 contrast-125"
             />
           </div>
         </div>
