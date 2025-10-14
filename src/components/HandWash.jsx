@@ -57,19 +57,19 @@ const HandWash = () => {
         <div className="grid grid-cols-[3fr_2fr] gap-12 max-w-7xl mt-2">
 
           {/* 이미지 */}
-          <div ref={imageRef} className="self-start mt-[0px] ml-[30px]">
+          <div ref={imageRef} className="self-start mt-[90px] ml-[50px]">
             <div className="relative">
               {/* 화살표 버튼 */}
               <button
                 onClick={() => setActiveImage((prev) => (prev - 1 + images.length) % images.length)}
-                className="absolute left-[-60px] top-1/2 -translate-y-1/2 z-10 text-stone-300 hover:text-stone-100 transition-colors"
+                className="absolute left-[20px] right-[-90px] top-1/2 -translate-y-1/2 z-10 text-stone-300 hover:text-stone-100 transition-colors"
               >
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M25 10 L15 20 L25 30" />
                 </svg>
               </button>
 
-              <div className="aspect-[3/4] overflow-hidden max-w-sm">
+              <div className="aspect-[3/4] overflow-hidden w-64">
                 {images.map((image, index) => (
                   <img
                     key={index}
@@ -87,7 +87,7 @@ const HandWash = () => {
 
               <button
                 onClick={() => setActiveImage((prev) => (prev + 1) % images.length)}
-                className="absolute right-[-60px] top-1/2 -translate-y-1/2 z-10 text-stone-300 hover:text-stone-100 transition-colors"
+                className="absolute right-[20px] top-1/2 -translate-y-1/2 z-10 text-stone-300 hover:text-stone-100 transition-colors"
               >
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M15 10 L25 20 L15 30" />

@@ -4,6 +4,7 @@ const Perfume = () => {
   const titleRef = useGsapAnimation('fadeUp', 0)
   const perfume1Ref = useGsapAnimation('scaleIn', 0.2)
   const perfume2Ref = useGsapAnimation('scaleIn', 0.4)
+  const perfume3Ref = useGsapAnimation('scaleIn', 0.6)
 
   const perfumes = [
     {
@@ -14,6 +15,16 @@ const Perfume = () => {
         top: "베르가못, 자스민",
         middle: "로즈, 일랑일랑",
         base: "샌달우드, 머스크"
+      }
+    },
+    {
+      image: "/images/perfume/퍼퓸 샌달우드.png",
+      name: "샌달우드 & 로즈",
+      subtitle: "Sandalwood & Rose",
+      notes: {
+        top: "베르가못, 핑크페퍼",
+        middle: "로즈, 샌달우드",
+        base: "머스크, 앰버"
       }
     },
     {
@@ -49,13 +60,13 @@ const Perfume = () => {
         </div>
 
         {/* 퍼퓸 그리드 */}
-        <div className="grid grid-cols-2 gap-16 max-w-6xl mx-auto flex-1 items-center">
+        <div className="grid grid-cols-3 gap-12 max-w-6xl mx-auto flex-1 items-center">
 
           {/* 첫 번째 퍼퓸 */}
           <div ref={perfume1Ref}>
             <div className="group cursor-pointer">
-              <div className="relative overflow-hidden mb-8">
-                <div className="aspect-[3/4] max-w-xs mx-auto">
+              <div className="relative overflow-hidden mb-6">
+                <div className="aspect-[3/4] w-56 mx-auto">
                   <img
                     src={perfumes[0].image}
                     alt={perfumes[0].name}
@@ -66,8 +77,8 @@ const Perfume = () => {
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute bottom-8 left-8 text-white">
-                    <div className="space-y-1 text-sm opacity-90 font-light">
+                  <div className="absolute bottom-6 left-6 text-white">
+                    <div className="space-y-1 text-xs opacity-90 font-light">
                       <p className="staggered-text"><span className="font-medium">Top:</span> {perfumes[0].notes.top}</p>
                       <p className="staggered-text"><span className="font-medium">Middle:</span> {perfumes[0].notes.middle}</p>
                       <p className="staggered-text"><span className="font-medium">Base:</span> {perfumes[0].notes.base}</p>
@@ -76,8 +87,8 @@ const Perfume = () => {
                 </div>
               </div>
               <div className="text-center">
-                <h3 className="font-omni text-xl mb-2 text-stone-100 staggered-text">{perfumes[0].name}</h3>
-                <p className="font-pretendard text-base font-light text-stone-300 staggered-text">{perfumes[0].subtitle}</p>
+                <h3 className="font-omni text-lg mb-1 text-stone-100 staggered-text">{perfumes[0].name}</h3>
+                <p className="font-pretendard text-sm font-light text-stone-300 staggered-text">{perfumes[0].subtitle}</p>
               </div>
             </div>
           </div>
@@ -85,8 +96,8 @@ const Perfume = () => {
           {/* 두 번째 퍼퓸 */}
           <div ref={perfume2Ref}>
             <div className="group cursor-pointer">
-              <div className="relative overflow-hidden mb-8">
-                <div className="aspect-[3/4] max-w-xs mx-auto">
+              <div className="relative overflow-hidden mb-6">
+                <div className="aspect-[3/4] w-56 mx-auto">
                   <img
                     src={perfumes[1].image}
                     alt={perfumes[1].name}
@@ -97,8 +108,8 @@ const Perfume = () => {
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute bottom-8 left-8 text-white">
-                    <div className="space-y-1 text-sm opacity-90 font-light">
+                  <div className="absolute bottom-6 left-6 text-white">
+                    <div className="space-y-1 text-xs opacity-90 font-light">
                       <p className="staggered-text"><span className="font-medium">Top:</span> {perfumes[1].notes.top}</p>
                       <p className="staggered-text"><span className="font-medium">Middle:</span> {perfumes[1].notes.middle}</p>
                       <p className="staggered-text"><span className="font-medium">Base:</span> {perfumes[1].notes.base}</p>
@@ -107,8 +118,39 @@ const Perfume = () => {
                 </div>
               </div>
               <div className="text-center">
-                <h3 className="font-omni text-xl mb-2 text-stone-100 staggered-text">{perfumes[1].name}</h3>
-                <p className="font-pretendard text-base font-light text-stone-300 staggered-text">{perfumes[1].subtitle}</p>
+                <h3 className="font-omni text-lg mb-1 text-stone-100 staggered-text">{perfumes[1].name}</h3>
+                <p className="font-pretendard text-sm font-light text-stone-300 staggered-text">{perfumes[1].subtitle}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 세 번째 퍼퓸 */}
+          <div ref={perfume3Ref}>
+            <div className="group cursor-pointer">
+              <div className="relative overflow-hidden mb-6">
+                <div className="aspect-[3/4] w-56 mx-auto">
+                  <img
+                    src={perfumes[2].image}
+                    alt={perfumes[2].name}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                    style={{
+                      animation: 'imageFloat 8s ease-in-out infinite'
+                    }}
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute bottom-6 left-6 text-white">
+                    <div className="space-y-1 text-xs opacity-90 font-light">
+                      <p className="staggered-text"><span className="font-medium">Top:</span> {perfumes[2].notes.top}</p>
+                      <p className="staggered-text"><span className="font-medium">Middle:</span> {perfumes[2].notes.middle}</p>
+                      <p className="staggered-text"><span className="font-medium">Base:</span> {perfumes[2].notes.base}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center">
+                <h3 className="font-omni text-lg mb-1 text-stone-100 staggered-text">{perfumes[2].name}</h3>
+                <p className="font-pretendard text-sm font-light text-stone-300 staggered-text">{perfumes[2].subtitle}</p>
               </div>
             </div>
           </div>
