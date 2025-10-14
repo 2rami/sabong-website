@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import Lenis from 'lenis'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import GlobalBackground from './components/GlobalBackground'
 import Hero from './components/Hero'
 import Products from './components/Products'
@@ -7,27 +9,32 @@ import BodyWash from './components/BodyWash'
 import BathSalt from './components/BathSalt'
 import Perfume from './components/Perfume'
 import HandWash from './components/HandWash'
-import Lanyard from './components/Lanyard'
+import ScrollToTop from './components/ScrollToTop'
+
+gsap.registerPlugin(ScrollTrigger)
 
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true,
-      smoothTouch: false, // 터치에서는 네이티브 스크롤 사용
+      smoothTouch: false,
       syncTouch: true,
     })
 
-    function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
+    // Lenis와 GSAP ScrollTrigger 동기화
+    lenis.on('scroll', ScrollTrigger.update)
 
-    requestAnimationFrame(raf)
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000)
+    })
+
+    gsap.ticker.lagSmoothing(0)
 
     return () => {
       lenis.destroy()
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [])
 
@@ -41,12 +48,8 @@ function App() {
         <BathSalt />
         <Perfume />
         <HandWash />
-
-        {/* Discord Lanyard */}
-        <div className="container mx-auto px-4 py-20">
-          <Lanyard userId="YOUR_DISCORD_USER_ID" theme="dark" />
-        </div>
       </div>
+      <ScrollToTop />
     </div>
   )
 }

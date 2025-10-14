@@ -1,12 +1,9 @@
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { useSectionAnimation } from '../hooks/useSectionAnimation'
+import { useGsapAnimation } from '../hooks/useGsapAnimation'
 
 const Perfume = () => {
-  const [titleRef, titleVisible] = useScrollAnimation(0.3)
-  const [perfume1Ref, perfume1Visible] = useScrollAnimation(0.2)
-  const [perfume2Ref, perfume2Visible] = useScrollAnimation(0.2)
-  const [descRef, descVisible] = useScrollAnimation(0.2)
-  const sectionRef = useSectionAnimation()
+  const titleRef = useGsapAnimation('fadeUp', 0)
+  const perfume1Ref = useGsapAnimation('scaleIn', 0.2)
+  const perfume2Ref = useGsapAnimation('scaleIn', 0.4)
 
   const perfumes = [
     {
@@ -32,19 +29,12 @@ const Perfume = () => {
   ]
 
   return (
-    <section ref={sectionRef} className="h-screen flex items-center bg-transparent relative overflow-hidden py-20 mb-[100vh]">
+    <section className="h-screen flex items-center bg-transparent relative overflow-hidden py-20 mb-[100vh]">
 
       <div className="container mx-auto px-8 py-12 relative z-10 w-full h-full flex flex-col">
 
         {/* 제목 */}
-        <div
-          ref={titleRef}
-          className={`mb-8 transition-all duration-1000 ${
-            titleVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <div ref={titleRef} className="mb-8">
           <h2 className="font-display text-4xl font-light text-stone-100 tracking-wide mb-3">
             <div className="staggered-line">
               <span className="staggered-text">Perfume</span>
@@ -62,14 +52,7 @@ const Perfume = () => {
         <div className="grid grid-cols-2 gap-16 max-w-6xl mx-auto flex-1 items-center">
 
           {/* 첫 번째 퍼퓸 */}
-          <div
-            ref={perfume1Ref}
-            className={`transition-all duration-1000 delay-200 ${
-              perfume1Visible
-                ? 'opacity-100 rotate-x-0'
-                : 'opacity-0 rotate-x-[90deg]'
-            }`}
-          >
+          <div ref={perfume1Ref}>
             <div className="group cursor-pointer">
               <div className="relative overflow-hidden mb-8">
                 <div className="aspect-[3/4] max-w-xs mx-auto">
@@ -77,6 +60,9 @@ const Perfume = () => {
                     src={perfumes[0].image}
                     alt={perfumes[0].name}
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                    style={{
+                      animation: 'imageFloat 8s ease-in-out infinite'
+                    }}
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -97,14 +83,7 @@ const Perfume = () => {
           </div>
 
           {/* 두 번째 퍼퓸 */}
-          <div
-            ref={perfume2Ref}
-            className={`transition-all duration-1000 delay-400 ${
-              perfume2Visible
-                ? 'opacity-100 rotate-x-0'
-                : 'opacity-0 rotate-x-[90deg]'
-            }`}
-          >
+          <div ref={perfume2Ref}>
             <div className="group cursor-pointer">
               <div className="relative overflow-hidden mb-8">
                 <div className="aspect-[3/4] max-w-xs mx-auto">
@@ -112,6 +91,9 @@ const Perfume = () => {
                     src={perfumes[1].image}
                     alt={perfumes[1].name}
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                    style={{
+                      animation: 'imageFloat 8s ease-in-out infinite'
+                    }}
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">

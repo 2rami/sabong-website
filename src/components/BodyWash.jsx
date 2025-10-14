@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react'
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { useSectionAnimation } from '../hooks/useSectionAnimation'
+import { useGsapAnimation } from '../hooks/useGsapAnimation'
 
 const BodyWash = () => {
   const [activeImage, setActiveImage] = useState(0)
-  const [titleRef, titleVisible] = useScrollAnimation(0.3)
-  const [contentRef, contentVisible] = useScrollAnimation(0.2)
-  const [imageRef, imageVisible] = useScrollAnimation(0.2)
-  const sectionRef = useSectionAnimation()
+  const titleRef = useGsapAnimation('fadeUp', 0)
+  const imageRef = useGsapAnimation('scaleIn', 0.2)
+  const contentRef = useGsapAnimation('fadeUp', 0.4)
 
   const images = [
     "/images/bodywash/1.png",
@@ -25,7 +23,7 @@ const BodyWash = () => {
 
 
   return (
-    <section ref={sectionRef} className="h-screen flex items-start bg-transparent relative overflow-hidden pt-8 mb-[100vh]">
+    <section className="h-screen flex items-start bg-transparent relative overflow-hidden pt-32 mb-[100vh]">
       {/* 배경 패턴 */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 border border-white/20 rotate-45"></div>
@@ -37,14 +35,7 @@ const BodyWash = () => {
       <div className="container mx-auto pl-16 pr-8 pt-4 relative z-10 w-full flex flex-col">
 
         {/* 제목 */}
-        <div
-          ref={titleRef}
-          className={`mb-8 transition-all duration-1000 ${
-            titleVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <div ref={titleRef} className="mb-8">
           <h2 className="font-display text-4xl font-light text-stone-100 tracking-wide mb-3">
             <div className="staggered-line">
               <span className="staggered-text">Body Wash</span>
@@ -56,14 +47,7 @@ const BodyWash = () => {
         <div className="grid grid-cols-[3fr_2fr] gap-12 max-w-7xl mt-2">
 
           {/* 이미지 */}
-          <div
-            ref={imageRef}
-            className={`transition-all duration-1000 delay-200 [perspective:1200px] [transform-style:preserve-3d] self-start mt-[0px] ml-[30px] ${
-              imageVisible
-                ? 'opacity-100 rotate-x-0'
-                : 'opacity-0 rotate-x-[90deg]'
-            }`}
-          >
+          <div ref={imageRef} className="self-start mt-[0px] ml-[30px]">
             <div className="relative">
               {/* 화살표 버튼 */}
               <button
@@ -118,14 +102,7 @@ const BodyWash = () => {
           </div>
 
           {/* 내용 */}
-          <div
-            ref={contentRef}
-            className={`transition-all duration-1000 delay-400 self-start mt-[100px] ${
-              contentVisible
-                ? 'opacity-100 rotate-x-0'
-                : 'opacity-0 rotate-x-[90deg]'
-            }`}
-          >
+          <div ref={contentRef} className="self-start mt-[100px]">
             <div className="max-w-lg">
               <div className="text-center mb-8">
                 <div className="staggered-line">

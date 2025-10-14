@@ -1,32 +1,38 @@
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { useSectionAnimation } from '../hooks/useSectionAnimation'
+import { useGsapAnimation } from '../hooks/useGsapAnimation'
 
 const BathSalt = () => {
-  const [titleRef, titleVisible] = useScrollAnimation(0.3)
-  const [gridRef, gridVisible] = useScrollAnimation(0.2)
-  const [textRef, textVisible] = useScrollAnimation(0.2)
-  const sectionRef = useSectionAnimation()
+  const titleRef = useGsapAnimation('fadeUp', 0)
+  const image1Ref = useGsapAnimation('fadeUp', 0.1)
+  const image2Ref = useGsapAnimation('fadeUp', 0.3)
+  const image3Ref = useGsapAnimation('fadeUp', 0.5)
+  const textRef = useGsapAnimation('fadeUp', 0.7)
 
   const images = [
     {
       src: "/images/bathsalt/배쓰밤 아로마틱.png",
       name: "라벤더 릴랙싱",
-      subtitle: "Lavender Relaxing"
+      subtitle: "Lavender Relaxing",
+      ref: image1Ref,
+      yOffset: "mt-0"
     },
     {
       src: "/images/bathsalt/배쓰밤 샌달우드.png",
       name: "샌달우드 캄",
-      subtitle: "Sandalwood Calm"
+      subtitle: "Sandalwood Calm",
+      ref: image2Ref,
+      yOffset: "mt-16"
     },
     {
       src: "/images/bathsalt/배쓰밤 자스민.png",
       name: "자스민 프레시",
-      subtitle: "Jasmine Fresh"
+      subtitle: "Jasmine Fresh",
+      ref: image3Ref,
+      yOffset: "mt-8"
     }
   ]
 
   return (
-    <section ref={sectionRef} className="h-screen flex items-center bg-transparent relative overflow-hidden py-20 mb-[100vh]">
+    <section className="min-h-[130vh] flex items-center bg-transparent relative overflow-hidden py-20 mb-[100vh]">
       {/* 도트 패턴 */}
       <div className="absolute inset-0 opacity-5">
         {Array.from({length: 50}).map((_, i) => (
@@ -45,14 +51,7 @@ const BathSalt = () => {
       <div className="container mx-auto px-8 py-12 relative z-10 w-full h-full flex flex-col">
 
         {/* 제목 */}
-        <div
-          ref={titleRef}
-          className={`mb-8 transition-all duration-1000 ${
-            titleVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <div ref={titleRef} className="mb-8">
           <h2 className="font-display text-4xl font-light text-stone-100 tracking-wide mb-3">
             <div className="staggered-line">
               <span className="staggered-text">Bath Balm</span>
@@ -67,26 +66,22 @@ const BathSalt = () => {
         </div>
 
         {/* 이미지 그리드 */}
-        <div
-          ref={gridRef}
-          className={`grid grid-cols-3 gap-12 max-w-6xl mx-auto flex-1 items-center transition-all duration-1000 delay-200 ${
-            gridVisible
-              ? 'opacity-100 rotate-x-0'
-              : 'opacity-0 rotate-x-[90deg]'
-          }`}
-        >
+        <div className="grid grid-cols-3 gap-16 max-w-4xl mx-auto flex-1 items-center">
           {images.map((image, index) => (
             <div
               key={index}
-              className="group cursor-pointer"
-              style={{ animationDelay: `${index * 200}ms` }}
+              ref={image.ref}
+              className={`group cursor-pointer ${image.yOffset}`}
             >
               <div className="relative overflow-hidden">
-                <div className="aspect-[2/3] max-w-sm mx-auto">
+                <div className="aspect-[2/3] w-48 mx-auto">
                   <img
                     src={image.src}
                     alt={image.name}
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                    style={{
+                      animation: 'imageFloat 8s ease-in-out infinite'
+                    }}
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -103,14 +98,7 @@ const BathSalt = () => {
         </div>
 
         {/* 설명 텍스트 */}
-        <div
-          ref={textRef}
-          className={`text-center max-w-2xl mx-auto transition-all duration-1000 delay-400 ${
-            textVisible
-              ? 'opacity-100 rotate-x-0'
-              : 'opacity-0 rotate-x-[90deg]'
-          }`}
-        >
+        <div ref={textRef} className="text-center max-w-2xl mx-auto mt-12">
           <p className="font-pretendard text-xl text-stone-200 leading-relaxed mb-4">
             <span className="staggered-text"><span className="font-bold">천연 식물성 오일</span>과 <span className="font-bold">에센셜 오일</span>의 완벽한 조화</span>
           </p>
