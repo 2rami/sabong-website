@@ -66,7 +66,7 @@ const Products = () => {
     // CSS로 부드러운 전환 설정
     const style = document.createElement("style");
     style.textContent = `
-      #collection-bg {
+      #products {
         transition: background-color 1.5s cubic-bezier(0.23, 1, 0.32, 1) !important;
       }
       #collection-title {
@@ -151,7 +151,7 @@ const Products = () => {
   // activeIndex 변경 시 배경색 변경
   useEffect(() => {
     const product = products[activeIndex];
-    const bg = document.getElementById("collection-bg");
+    const bg = document.getElementById("products");
     const title = document.getElementById("collection-title");
     const line = document.getElementById("collection-line");
     const titles = document.querySelectorAll(".product-title");
@@ -168,9 +168,10 @@ const Products = () => {
 
   return (
     <section
+      id="products"
       ref={sectionRef}
       className="h-screen relative overflow-hidden mb-[100vh]"
-      id="collection-bg"
+      data-bg-id="collection-bg"
     >
       {/* 배경 패턴 */}
       <div className="absolute inset-0 opacity-20">

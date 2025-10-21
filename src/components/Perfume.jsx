@@ -40,7 +40,7 @@ const Perfume = () => {
   ]
 
   return (
-    <section className="h-screen flex items-center bg-transparent relative overflow-hidden py-20 mb-[100vh]">
+    <section id="perfume" className="h-screen flex items-center bg-transparent relative overflow-hidden py-20 mb-[100vh]">
 
       <div className="container mx-auto px-8 py-12 relative z-10 w-full h-full flex flex-col">
 

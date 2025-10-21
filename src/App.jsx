@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -10,12 +10,15 @@ import BathSalt from './components/BathSalt'
 import Perfume from './components/Perfume'
 import HandWash from './components/HandWash'
 import ScrollToTop from './components/ScrollToTop'
+import Navigation from './components/Navigation'
 
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
+  const [lenis, setLenis] = useState(null)
+
   useEffect(() => {
-    const lenis = new Lenis({
+    const lenisInstance = new Lenis({
       duration: 1.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true,
@@ -23,17 +26,19 @@ function App() {
       syncTouch: true,
     })
 
+    setLenis(lenisInstance)
+
     // Lenis와 GSAP ScrollTrigger 동기화
-    lenis.on('scroll', ScrollTrigger.update)
+    lenisInstance.on('scroll', ScrollTrigger.update)
 
     gsap.ticker.add((time) => {
-      lenis.raf(time * 1000)
+      lenisInstance.raf(time * 1000)
     })
 
     gsap.ticker.lagSmoothing(0)
 
     return () => {
-      lenis.destroy()
+      lenisInstance.destroy()
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [])
@@ -41,6 +46,7 @@ function App() {
   return (
     <div className="relative min-h-screen">
       <GlobalBackground />
+      <Navigation lenis={lenis} />
       <div className="relative z-0">
         <Hero />
         <Products />

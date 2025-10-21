@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <section className="relative h-screen overflow-hidden mb-[100vh]">
+    <section id="hero" className="relative h-screen overflow-hidden mb-[100vh]">
       {/* 메인 타이틀 */}
       <div className="relative z-20 flex items-center justify-center h-screen">
         <div className="text-center">

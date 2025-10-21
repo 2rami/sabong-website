@@ -38,7 +38,7 @@ const BathSalt = () => {
   ]
 
   return (
-    <section className="min-h-[130vh] flex items-center bg-transparent relative overflow-hidden py-20 mb-[100vh]">
+    <section id="bathsalt" className="min-h-[130vh] flex items-center bg-transparent relative overflow-hidden py-20 mb-[100vh]">
       {/* 도트 패턴 */}
       <div className="absolute inset-0 opacity-5">
         {Array.from({length: 50}).map((_, i) => (

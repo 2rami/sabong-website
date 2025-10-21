@@ -33,7 +33,7 @@ const HandWash = () => {
   }, [images.length])
 
   return (
-    <section className="h-screen flex items-start bg-transparent relative overflow-hidden pt-8">
+    <section id="handwash" className="h-screen flex items-start bg-transparent relative overflow-hidden pt-8">
       {/* 배경 패턴 */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 border border-white/20 rotate-45"></div>
